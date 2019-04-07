@@ -1,9 +1,8 @@
-FROM ubuntu:14.04
-MAINTAINER Ignacio Millán <ignacio.millan@bq.com>
-RUN apt-get update && apt-get install -y python-pip
+FROM python:3.7-alpine
+
 COPY src /usr/local/src
-RUN pip install -r /usr/local/src/requirements.txt
+RUN pip install --no-cache-dir -r /usr/local/src/requirements.txt
+WORKDIR /usr/local/src
 
 EXPOSE 80
-WORKDIR /usr/local/src
 ENTRYPOINT ["python","webapp.py"]
