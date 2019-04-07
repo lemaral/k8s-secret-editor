@@ -1,4 +1,4 @@
-FROM python:3.7-alpine
+FROM python:2.7-alpine
 
 COPY src /usr/local/src
 RUN pip install --no-cache-dir -r /usr/local/src/requirements.txt
